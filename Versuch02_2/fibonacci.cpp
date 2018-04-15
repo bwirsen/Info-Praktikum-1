@@ -11,19 +11,14 @@
 
 int fibonacci(int n)
 {
-	int previousFib = 1;
+//	int previousFib = 1;
+	int previousFib = 0; //Start ist die 0. FibZahl, also 0 und nicht 1.
 	int currentFib = 1;
 	if (n == 0)
 	{
 		return 0;
 	}
 	if (n == 1)
-	{
-		return 1;
-	}
-	//Notwendig für die 2-te Fibonacci-Zahl, da diese 1 ist und somit nicht über die
-	//for-Schleife berechnet werden kann, da dort mindestens eine 2 returnt wird.
-	if (n == 2)
 	{
 		return 1;
 	}
@@ -34,11 +29,11 @@ int fibonacci(int n)
 //	 previousFib = newFib ;
 //	 currentFib = previousFib ;
 //	 }
-	for (int i = 0; i <= n - 3; i++) //Maximum der Schleifen-Durchläufe angepasst, sodass die Ergebnisse passen.
-	{								 //Vor der Änderung waren die Ergebnisse zwar korrekt, aber um jeweils 3 Ziffern zu früh.
+	for (int i = 0; i <= n - 2; i++) //Maximum der Schleifen-Durchläufe angepasst, sodass die Ergebnisse passen.
+	{								 //Vor der Änderung waren die Ergebnisse zwar korrekt, aber um jeweils 2 Ziffern zu früh.
 		int newFib = previousFib + currentFib; //richtig
 		//Die beiden folgenden Zeilen wurden logisch angepasst, sodass die mathematische Definition aufgeht:
-		//Es müssen stets die beiden vorherigen FibZahlen addiert werden.
+		//Es müssen stets die beiden vorherigen FibZahlen addiert werden , um die neue zu bestimmen.
 		previousFib = currentFib;
 		currentFib = newFib;
 
