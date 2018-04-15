@@ -11,7 +11,7 @@
 #include <string>
 using namespace std;
 /* Sorgt dafür, dass jegliche Funktionen der C++-Standardbibliothek
- *	auch ohne "std::" aufrufbar sind, da der Namensraum std als
+ * auch ohne "std::" aufrufbar sind, da der Namensraum std als
  * Standard für alle Funktionen angenommen wird. */
 
 int main()
@@ -71,19 +71,21 @@ int main()
 	cout << "Vorname Name: " << sVornameName << endl;
 	cout << "Name, Vorname: " << sNameVorname << endl;
 
-
 	//Aufgabe 1.6.1_5
 	{
 		//a)
-		int iFeld[2] = { 1, 2 }; //Erstellen eines 2 elementigen Arrays mit den Elementen 1 und 2.
+		int iFeld[2] =
+		{ 1, 2 }; //Erstellen eines 2 elementigen Arrays mit den Elementen 1 und 2.
 		cout << "1. Element aus iFeld: " << iFeld[0] << endl;
 		cout << "2. Element aus iFeld: " << iFeld[1] << endl;
 	}
 
 	{
 		//b)
-		int spielfeld[2][3] = { { 1, 2, 3 }, //Erzeugen eines 2D-Arrays
-								{ 4, 5, 6 } };
+		int spielfeld[2][3] =
+		{
+		{ 1, 2, 3 }, //Erzeugen eines 2D-Arrays
+				{ 4, 5, 6 } };
 
 		cout << spielfeld[0][0] << " " << spielfeld[0][1] << " " //Komponentenweise Ausgabe
 				<< spielfeld[0][2] << endl;
@@ -111,9 +113,8 @@ int main()
 	int pos2 = iName2 % 32;
 
 	cout << "Position im Alphabet des ersten Buchstabens: " << pos1
-				<< ", Position im Alphabet des zweiten Buchstabens: " << pos2
-				<< endl;
-
+			<< ", Position im Alphabet des zweiten Buchstabens: " << pos2
+			<< endl;
 
 	return 0;
 

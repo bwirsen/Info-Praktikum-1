@@ -66,12 +66,10 @@ int main()
 	cout << endl;
 	cout << "Daten für nKopieGesamt:" << endl;
 	cout << endl;
-	cout << "Name: " << nKopieGesamt.sNachname << ", "
-			<< nKopieGesamt.sVorname << endl;
+	cout << "Name: " << nKopieGesamt.sNachname << ", " << nKopieGesamt.sVorname
+			<< endl;
 	cout << "Alter, Geburtsjahr: " << nKopieGesamt.iAlter << ", "
 			<< nKopieGesamt.iGeburtsjahr << endl;
-
-
 
 	return 0;
 

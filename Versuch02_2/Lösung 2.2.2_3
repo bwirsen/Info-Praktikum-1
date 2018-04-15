@@ -1,0 +1,6 @@
+Für n=42 dauert die rekursive Variante deutlich länger, da diese eine Laufzeit von 2^n besitzt,
+da für jeden Aufruf wieder 2 neue Aufrufe enstehen => exponentielles Wachstum der Aufgabenanzahl, 
+die vom Stack abgearbeitet werden müssen.
+
+Die iterative Variante hingegen besitzt eine lineare Laufzeit, da jeder Schleifenaufruf nacheinander 
+und ohne Verschachtelungen Ausgeführt wird.

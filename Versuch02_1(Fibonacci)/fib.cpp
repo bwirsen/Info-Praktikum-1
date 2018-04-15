@@ -31,12 +31,14 @@ int fibonacci(unsigned int n)
 int main()
 {
 	//Definition der Variable maxFib und erstellen des Zielarrays, in welchem die n-ten Fibonacci-Zahlen gespeichert werden
-	const unsigned int maxFib = 25;
+	//const unsigned int maxFib = 25;
+	const unsigned int maxFib = 42;
 
 	//Aufrufen der Fibonacci Funktion und iteratives Ausgeben der n-ten Ergbenisse für n,max=maxFib
 	for (unsigned int var = 0; var <= maxFib; ++var)
 	{
-		cout << "Fibonacci-Zahl für n=" << var << " ==> " << fibonacci(var)<<endl;
+		cout << "Fibonacci-Zahl für n=" << var << " ==> " << fibonacci(var)
+				<< endl;
 	}
 
 	return 0;
