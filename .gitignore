@@ -1,0 +1,8 @@
+.metadata
+RemoteSystemsTempFiles
+Test_Doxygen
+
+.cproject
+.settings
+*.exe
+*.o
