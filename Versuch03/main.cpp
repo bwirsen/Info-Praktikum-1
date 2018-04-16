@@ -96,10 +96,17 @@ void show_field(const int field[SIZE_Y][SIZE_X])
 }
 
 /**
-* @brief Checks who is the winner
-*
-* Detailed Description...
-*/
+ * @brief Checks who is the winner
+ *
+ * This function gets the final playing field as parameter (two dimensional array)
+ * with entries 1 (field belongs to player 1), 2 (field belongs to player 2).
+ * <br>This function looks at every fieldelement to count the claimed fields of
+ * player 1 and 2. After that it checks which player has the most to return the winner,
+ * or just in case a draw.
+ *
+ * @param field	The field which has to be checked
+ * @return The number of the winning player (1 or 2) or 0 for draw.
+ */
 int winner(const int field[SIZE_Y][SIZE_X])
 {
 	int count_p1 = 0;

@@ -558,7 +558,15 @@ The function prints the playing field, grid included, to the console. Crosses sy
 </div><div class="memdoc">
 
 <p>Checks who is the winner. </p>
-<p>Detailed Description... </p>
+<p>This function gets the final playing field as parameter (two dimensional array) with entries 1 (field belongs to player 1), 2 (field belongs to player 2). <br />
+This function looks at every fieldelement to count the claimed fields of player 1 and 2. After that it checks which player has the most to return the winner, or just in case a draw.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">field</td><td>The field which has to be checked </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of the winning player (1 or 2) or 0 for draw. </dd></dl>
 
 </div>
 </div>
