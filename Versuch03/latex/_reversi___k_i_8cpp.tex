@@ -1,0 +1,42 @@
+\hypertarget{_reversi___k_i_8cpp}{}\section{Reversi\+\_\+\+K\+I.\+cpp File Reference}
+\label{_reversi___k_i_8cpp}\index{Reversi\+\_\+\+K\+I.\+cpp@{Reversi\+\_\+\+K\+I.\+cpp}}
+{\ttfamily \#include \char`\"{}Reversi\+\_\+\+K\+I.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_reversi___k_i_8cpp_abc856bca74fb081e1a6703227217f64d}\label{_reversi___k_i_8cpp_abc856bca74fb081e1a6703227217f64d}} 
+int {\bfseries possible\+\_\+turns} (const int field\mbox{[}\mbox{\hyperlink{config_8h_a6860cfdeb3aec30a717773c935b62688}{S\+I\+Z\+E\+\_\+Y}}\mbox{]}\mbox{[}\mbox{\hyperlink{config_8h_a7297804bc7db40c954fd7fb75f7f874e}{S\+I\+Z\+E\+\_\+X}}\mbox{]}, const int player)
+\item 
+\mbox{\Hypertarget{_reversi___k_i_8cpp_a2495c6f2402435b226c6f06785e7d091}\label{_reversi___k_i_8cpp_a2495c6f2402435b226c6f06785e7d091}} 
+void {\bfseries execute\+\_\+turn} (int field\mbox{[}\mbox{\hyperlink{config_8h_a6860cfdeb3aec30a717773c935b62688}{S\+I\+Z\+E\+\_\+Y}}\mbox{]}\mbox{[}\mbox{\hyperlink{config_8h_a7297804bc7db40c954fd7fb75f7f874e}{S\+I\+Z\+E\+\_\+X}}\mbox{]}, const int player, const int pos\+\_\+x, const int pos\+\_\+y)
+\item 
+\mbox{\Hypertarget{_reversi___k_i_8cpp_afbf34a9e8028eb4911abf42d6dee0dea}\label{_reversi___k_i_8cpp_afbf34a9e8028eb4911abf42d6dee0dea}} 
+bool {\bfseries turn\+\_\+valid} (const int field\mbox{[}\mbox{\hyperlink{config_8h_a6860cfdeb3aec30a717773c935b62688}{S\+I\+Z\+E\+\_\+Y}}\mbox{]}\mbox{[}\mbox{\hyperlink{config_8h_a7297804bc7db40c954fd7fb75f7f874e}{S\+I\+Z\+E\+\_\+X}}\mbox{]}, const int player, const int pos\+\_\+x, const int pos\+\_\+y)
+\item 
+bool \mbox{\hyperlink{_reversi___k_i_8cpp_a2493087dfe8f9e58555eb20a03d941d6}{computer\+\_\+turn}} (int field\mbox{[}\mbox{\hyperlink{config_8h_a6860cfdeb3aec30a717773c935b62688}{S\+I\+Z\+E\+\_\+Y}}\mbox{]}\mbox{[}\mbox{\hyperlink{config_8h_a7297804bc7db40c954fd7fb75f7f874e}{S\+I\+Z\+E\+\_\+X}}\mbox{]}, const int player)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides a KI for the game Reversi. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_reversi___k_i_8cpp_a2493087dfe8f9e58555eb20a03d941d6}\label{_reversi___k_i_8cpp_a2493087dfe8f9e58555eb20a03d941d6}} 
+\index{Reversi\+\_\+\+K\+I.\+cpp@{Reversi\+\_\+\+K\+I.\+cpp}!computer\+\_\+turn@{computer\+\_\+turn}}
+\index{computer\+\_\+turn@{computer\+\_\+turn}!Reversi\+\_\+\+K\+I.\+cpp@{Reversi\+\_\+\+K\+I.\+cpp}}
+\subsubsection{\texorpdfstring{computer\+\_\+turn()}{computer\_turn()}}
+{\footnotesize\ttfamily bool computer\+\_\+turn (\begin{DoxyParamCaption}\item[{int}]{field\mbox{[}\+S\+I\+Z\+E\+\_\+\+Y\mbox{]}\mbox{[}\+S\+I\+Z\+E\+\_\+\+X\mbox{]},  }\item[{const int}]{player }\end{DoxyParamCaption})}
+
+A function which provides a KI for the game Reversi
+
+
+\begin{DoxyParams}{Parameters}
+{\em field} & The field on which the KI is going to play. \\
+\hline
+{\em player} & The player number of the KI \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if a turn was executed. False if no turn is possible. 
+\end{DoxyReturn}

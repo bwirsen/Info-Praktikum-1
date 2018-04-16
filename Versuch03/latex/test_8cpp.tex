@@ -1,0 +1,105 @@
+\hypertarget{test_8cpp}{}\section{test.\+cpp File Reference}
+\label{test_8cpp}\index{test.\+cpp@{test.\+cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}test.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{test_8cpp_aacdbfaa6045beffcf99b25f92f979b29}{show\+\_\+field}} (const int field\mbox{[}\mbox{\hyperlink{config_8h_a6860cfdeb3aec30a717773c935b62688}{S\+I\+Z\+E\+\_\+Y}}\mbox{]}\mbox{[}\mbox{\hyperlink{config_8h_a7297804bc7db40c954fd7fb75f7f874e}{S\+I\+Z\+E\+\_\+X}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Prints the playing field to the console. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{test_8cpp_ad4e85a4813dd17886bcb1704ffa49bca}{winner}} (const int field\mbox{[}\mbox{\hyperlink{config_8h_a6860cfdeb3aec30a717773c935b62688}{S\+I\+Z\+E\+\_\+Y}}\mbox{]}\mbox{[}\mbox{\hyperlink{config_8h_a7297804bc7db40c954fd7fb75f7f874e}{S\+I\+Z\+E\+\_\+X}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Checks who is the winner. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{test_8cpp_a7b9e2a0b89f56854fa9e43ed9a691514}{on\+\_\+field}} (const int pos\+\_\+x, const int pos\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Checks for two index parameters, if they adress a position on the field. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{test_8cpp_afbf34a9e8028eb4911abf42d6dee0dea}\label{test_8cpp_afbf34a9e8028eb4911abf42d6dee0dea}} 
+bool {\bfseries turn\+\_\+valid} (const int field\mbox{[}\mbox{\hyperlink{config_8h_a6860cfdeb3aec30a717773c935b62688}{S\+I\+Z\+E\+\_\+Y}}\mbox{]}\mbox{[}\mbox{\hyperlink{config_8h_a7297804bc7db40c954fd7fb75f7f874e}{S\+I\+Z\+E\+\_\+X}}\mbox{]}, const int player, const int pos\+\_\+x, const int pos\+\_\+y)
+\item 
+\mbox{\Hypertarget{test_8cpp_a2495c6f2402435b226c6f06785e7d091}\label{test_8cpp_a2495c6f2402435b226c6f06785e7d091}} 
+void {\bfseries execute\+\_\+turn} (int field\mbox{[}\mbox{\hyperlink{config_8h_a6860cfdeb3aec30a717773c935b62688}{S\+I\+Z\+E\+\_\+Y}}\mbox{]}\mbox{[}\mbox{\hyperlink{config_8h_a7297804bc7db40c954fd7fb75f7f874e}{S\+I\+Z\+E\+\_\+X}}\mbox{]}, const int player, const int pos\+\_\+x, const int pos\+\_\+y)
+\item 
+\mbox{\Hypertarget{test_8cpp_abc856bca74fb081e1a6703227217f64d}\label{test_8cpp_abc856bca74fb081e1a6703227217f64d}} 
+int {\bfseries possible\+\_\+turns} (const int field\mbox{[}\mbox{\hyperlink{config_8h_a6860cfdeb3aec30a717773c935b62688}{S\+I\+Z\+E\+\_\+Y}}\mbox{]}\mbox{[}\mbox{\hyperlink{config_8h_a7297804bc7db40c954fd7fb75f7f874e}{S\+I\+Z\+E\+\_\+X}}\mbox{]}, const int player)
+\item 
+bool \mbox{\hyperlink{test_8cpp_afb0dacc849db18e935c23bf33f338fd2}{test\+\_\+winner}} (const int field\mbox{[}\mbox{\hyperlink{config_8h_a6860cfdeb3aec30a717773c935b62688}{S\+I\+Z\+E\+\_\+Y}}\mbox{]}\mbox{[}\mbox{\hyperlink{config_8h_a7297804bc7db40c954fd7fb75f7f874e}{S\+I\+Z\+E\+\_\+X}}\mbox{]}, const int winner\+\_\+code, const int test\+\_\+number)
+\item 
+\mbox{\Hypertarget{test_8cpp_a09a73a549f9087f4d785d8be7dfdda45}\label{test_8cpp_a09a73a549f9087f4d785d8be7dfdda45}} 
+bool {\bfseries test\+\_\+on\+\_\+field} (const int pos\+\_\+x, const int pos\+\_\+y, const bool valid, const int test\+\_\+number)
+\item 
+\mbox{\Hypertarget{test_8cpp_ade70a78bd4c62d0deed498aa89bb7f4c}\label{test_8cpp_ade70a78bd4c62d0deed498aa89bb7f4c}} 
+bool {\bfseries test\+\_\+turn\+\_\+valid} (const int field\mbox{[}\mbox{\hyperlink{config_8h_a6860cfdeb3aec30a717773c935b62688}{S\+I\+Z\+E\+\_\+Y}}\mbox{]}\mbox{[}\mbox{\hyperlink{config_8h_a7297804bc7db40c954fd7fb75f7f874e}{S\+I\+Z\+E\+\_\+X}}\mbox{]}, const int player, const int pos\+\_\+x, const int pos\+\_\+y, const bool valid, const int test\+\_\+number)
+\item 
+\mbox{\Hypertarget{test_8cpp_a63513275fd4db9f439a04df455d31c3d}\label{test_8cpp_a63513275fd4db9f439a04df455d31c3d}} 
+bool {\bfseries test\+\_\+execute\+\_\+turn} (int input\mbox{[}\mbox{\hyperlink{config_8h_a6860cfdeb3aec30a717773c935b62688}{S\+I\+Z\+E\+\_\+Y}}\mbox{]}\mbox{[}\mbox{\hyperlink{config_8h_a7297804bc7db40c954fd7fb75f7f874e}{S\+I\+Z\+E\+\_\+X}}\mbox{]}, const int output\mbox{[}\mbox{\hyperlink{config_8h_a6860cfdeb3aec30a717773c935b62688}{S\+I\+Z\+E\+\_\+Y}}\mbox{]}\mbox{[}\mbox{\hyperlink{config_8h_a7297804bc7db40c954fd7fb75f7f874e}{S\+I\+Z\+E\+\_\+X}}\mbox{]}, const int player, const int pos\+\_\+x, const int pos\+\_\+y, const int test\+\_\+number)
+\item 
+\mbox{\Hypertarget{test_8cpp_a7010fd076a3672f74d9d88257edd22f6}\label{test_8cpp_a7010fd076a3672f74d9d88257edd22f6}} 
+bool {\bfseries test\+\_\+possible\+\_\+turns} (const int field\mbox{[}\mbox{\hyperlink{config_8h_a6860cfdeb3aec30a717773c935b62688}{S\+I\+Z\+E\+\_\+Y}}\mbox{]}\mbox{[}\mbox{\hyperlink{config_8h_a7297804bc7db40c954fd7fb75f7f874e}{S\+I\+Z\+E\+\_\+X}}\mbox{]}, const int player, const int count\+\_\+possible\+\_\+turns, const int test\+\_\+number)
+\item 
+\mbox{\Hypertarget{test_8cpp_a5d97619a3b882df16b6832e8ea9be4e2}\label{test_8cpp_a5d97619a3b882df16b6832e8ea9be4e2}} 
+bool {\bfseries run\+\_\+full\+\_\+test} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides a function for testing the program and some other functions in order to provide this. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{test_8cpp_a7b9e2a0b89f56854fa9e43ed9a691514}\label{test_8cpp_a7b9e2a0b89f56854fa9e43ed9a691514}} 
+\index{test.\+cpp@{test.\+cpp}!on\+\_\+field@{on\+\_\+field}}
+\index{on\+\_\+field@{on\+\_\+field}!test.\+cpp@{test.\+cpp}}
+\subsubsection{\texorpdfstring{on\+\_\+field()}{on\_field()}}
+{\footnotesize\ttfamily bool on\+\_\+field (\begin{DoxyParamCaption}\item[{const int}]{pos\+\_\+x,  }\item[{const int}]{pos\+\_\+y }\end{DoxyParamCaption})}
+
+
+
+Checks for two index parameters, if they adress a position on the field. 
+
+Detailed Description... \mbox{\Hypertarget{test_8cpp_aacdbfaa6045beffcf99b25f92f979b29}\label{test_8cpp_aacdbfaa6045beffcf99b25f92f979b29}} 
+\index{test.\+cpp@{test.\+cpp}!show\+\_\+field@{show\+\_\+field}}
+\index{show\+\_\+field@{show\+\_\+field}!test.\+cpp@{test.\+cpp}}
+\subsubsection{\texorpdfstring{show\+\_\+field()}{show\_field()}}
+{\footnotesize\ttfamily void show\+\_\+field (\begin{DoxyParamCaption}\item[{const int}]{field\mbox{[}\+S\+I\+Z\+E\+\_\+\+Y\mbox{]}\mbox{[}\+S\+I\+Z\+E\+\_\+\+X\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Prints the playing field to the console. 
+
+This function gets the current playing field as parameter (two dimensional array) with entries of 0 (field is empty), 1 (field belongs to player 1), 2 (field belongs to player 2). ~\newline
+The function prints the playing field, grid included, to the console. Crosses symbolize player 1 while circles symbolize player 2.
+
+
+\begin{DoxyParams}{Parameters}
+{\em field} & The field which is going to be printed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{test_8cpp_afb0dacc849db18e935c23bf33f338fd2}\label{test_8cpp_afb0dacc849db18e935c23bf33f338fd2}} 
+\index{test.\+cpp@{test.\+cpp}!test\+\_\+winner@{test\+\_\+winner}}
+\index{test\+\_\+winner@{test\+\_\+winner}!test.\+cpp@{test.\+cpp}}
+\subsubsection{\texorpdfstring{test\+\_\+winner()}{test\_winner()}}
+{\footnotesize\ttfamily bool test\+\_\+winner (\begin{DoxyParamCaption}\item[{const int}]{field\mbox{[}\+S\+I\+Z\+E\+\_\+\+Y\mbox{]}\mbox{[}\+S\+I\+Z\+E\+\_\+\+X\mbox{]},  }\item[{const int}]{winner\+\_\+code,  }\item[{const int}]{test\+\_\+number }\end{DoxyParamCaption})}
+
+Function for testing the winner function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em field} & The field which will be tested. \\
+\hline
+{\em winner\+\_\+code} & The estimated winner. \\
+\hline
+{\em test\+\_\+number} & Current number of the test running \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the calculated winner equals the estimated winner. False else. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{test_8cpp_ad4e85a4813dd17886bcb1704ffa49bca}\label{test_8cpp_ad4e85a4813dd17886bcb1704ffa49bca}} 
+\index{test.\+cpp@{test.\+cpp}!winner@{winner}}
+\index{winner@{winner}!test.\+cpp@{test.\+cpp}}
+\subsubsection{\texorpdfstring{winner()}{winner()}}
+{\footnotesize\ttfamily int winner (\begin{DoxyParamCaption}\item[{const int}]{field\mbox{[}\+S\+I\+Z\+E\+\_\+\+Y\mbox{]}\mbox{[}\+S\+I\+Z\+E\+\_\+\+X\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Checks who is the winner. 
+
+Detailed Description... 
