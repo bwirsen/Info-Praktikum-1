@@ -285,7 +285,17 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks for two index parameters, if they adress a position on the field. </p>
-<p>Detailed Description... </p>
+<p>This function takes the given parameters and compares them to the constant borders of the playtable. The playable field is between the indices 0 to SIZE_X and 0 to SIZE_Y.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos_x</td><td>Position on the x-axis. </td></tr>
+    <tr><td class="paramname">pos_y</td><td>Position on the y-axis. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true If the given point lays on playable ground. </dd>
+<dd>
+false If the given point does not lay on playable ground. </dd></dl>
 
 </div>
 </div>

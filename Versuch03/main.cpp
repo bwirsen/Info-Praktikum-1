@@ -145,10 +145,25 @@ int winner(const int field[SIZE_Y][SIZE_X])
 /**
 * @brief Checks for two index parameters, if they adress a position on the field
 *
-* Detailed Description...
+* This function takes the given parameters and compares them to the constant borders of the playtable.
+* The playable field is between the indices 0 to SIZE_X and 0 to SIZE_Y.
+*
+* @param pos_x	Position on the x-axis.
+* @param pos_y	Position on the y-axis.
+* @return true	If the given point lays on playable ground.
+* @return false If the given point does not lay on playable ground.
 */
 bool on_field(const int pos_x, const int pos_y)
 {
+
+	if (0 <= pos_x && pos_x <= SIZE_X)
+	{
+		if (0 <= pos_y && pos_y <= SIZE_Y)
+		{
+			return true;
+		}
+	}
+
 	return false;
 }
 
