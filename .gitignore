@@ -1,8 +1,14 @@
+# ignore workspace specific stuff and just sync files
 .metadata
 RemoteSystemsTempFiles
-Test_Doxygen
 
-.cproject
+# child directory project files
 .settings
-*.exe
-*.o
+Debug
+Release
+html
+latex
+
+# child directory files
+.cproject
+.project
