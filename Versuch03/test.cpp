@@ -165,7 +165,7 @@ bool run_full_test(void)
 	
 	for (int i = 0; i < 6; ++i)
 	{
-		// TODO: Call the check function
+
 		bool tmp_result = test_on_field(position[0][i], position[1][i], onfield_valid[i], i);
 		if (result == true && tmp_result == false)
 				{
