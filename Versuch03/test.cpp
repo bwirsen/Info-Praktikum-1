@@ -16,7 +16,7 @@ extern void execute_turn(int field[SIZE_Y][SIZE_X], const int player, const int 
 extern int possible_turns(const int field[SIZE_Y][SIZE_X], const int player);
 
 /**
- * Function for testing the winner function.
+ * @brief Function for testing the winner function.
  *
  * @param field The field which will be tested.
  * @param winner_code The estimated winner.
@@ -45,11 +45,40 @@ bool test_winner(const int field[SIZE_Y][SIZE_X], const int winner_code, const i
 		return false;
 	}
 }
-
-bool test_on_field(const int pos_x, const int pos_y, const bool valid, const int test_number)
+/**
+ * @brief Function for testing the on_field function.
+ *
+ * @param pos_x	Position on x-axis of the given point.
+ * @param pos_y	Position on y-axis of the given point.
+ * @param valid	The estimated result of the given point.
+ * @param test_number	Current number of the test running.
+ * @return True if the calculated bool is equal to the estimated one.
+ */
+bool test_on_field(const int pos_x, const int pos_y, const bool valid,
+		const int test_number)
 {
-	// check if given position is on the field
-	return 0;
+	std::cout << "Running test " << test_number + 1 << " for 'on_field'..."
+			<< std::endl;
+	std::cout << "----------------------------" << std::endl << std::endl;
+	bool result = on_field(pos_x, pos_y);
+	if (result == valid)
+	{
+		std::cout << "Test " << test_number + 1 << " passed!" << std::endl
+				<< std::endl;
+		return true;
+	}
+	else
+	{
+		std::cout << "Test " << test_number + 1 << " failed!" << std::endl
+				<< std::endl;
+		if (VERBOSE == 1)
+		{
+			std::cout << std::endl << "Calculated result: " << result
+					<< std::endl << "Right result: " << valid << std::endl
+					<< std::endl;
+		}
+		return false;
+	}
 }
 
 bool test_turn_valid(const int field[SIZE_Y][SIZE_X], const int player, const int pos_x,
@@ -137,7 +166,14 @@ bool run_full_test(void)
 	for (int i = 0; i < 6; ++i)
 	{
 		// TODO: Call the check function
+		bool tmp_result = test_on_field(position[0][i], position[1][i], onfield_valid[i], i);
+		if (result == true && tmp_result == false)
+				{
+					result = false;
+				}
 	}
+
+	std::cout << "End of test for 'on_field'" << std::endl << std::endl;
 
 	
 // ---------- CHECK TURN VALID ---------- //

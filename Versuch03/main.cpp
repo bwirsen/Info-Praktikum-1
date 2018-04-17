@@ -147,6 +147,7 @@ int winner(const int field[SIZE_Y][SIZE_X])
 *
 * This function takes the given parameters and compares them to the constant borders of the playtable.
 * The playable field is between the indices 0 to SIZE_X and 0 to SIZE_Y.
+* Are the coordinates of the given point out of the playground, the function will return false.
 *
 * @param pos_x	Position on the x-axis.
 * @param pos_y	Position on the y-axis.
@@ -156,9 +157,9 @@ int winner(const int field[SIZE_Y][SIZE_X])
 bool on_field(const int pos_x, const int pos_y)
 {
 
-	if (0 <= pos_x && pos_x <= SIZE_X)
+	if (0 <= pos_x && pos_x < SIZE_X)
 	{
-		if (0 <= pos_y && pos_y <= SIZE_Y)
+		if (0 <= pos_y && pos_y < SIZE_Y)
 		{
 			return true;
 		}

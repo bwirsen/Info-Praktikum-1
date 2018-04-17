@@ -113,8 +113,10 @@ Functions</h2></td></tr>
 <tr class="memitem:abc856bca74fb081e1a6703227217f64d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#abc856bca74fb081e1a6703227217f64d">possible_turns</a> (const int field[<a class="el" href="config_8h.html#a6860cfdeb3aec30a717773c935b62688">SIZE_Y</a>][<a class="el" href="config_8h.html#a7297804bc7db40c954fd7fb75f7f874e">SIZE_X</a>], const int player)</td></tr>
 <tr class="separator:abc856bca74fb081e1a6703227217f64d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb0dacc849db18e935c23bf33f338fd2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#afb0dacc849db18e935c23bf33f338fd2">test_winner</a> (const int field[<a class="el" href="config_8h.html#a6860cfdeb3aec30a717773c935b62688">SIZE_Y</a>][<a class="el" href="config_8h.html#a7297804bc7db40c954fd7fb75f7f874e">SIZE_X</a>], const int winner_code, const int test_number)</td></tr>
+<tr class="memdesc:afb0dacc849db18e935c23bf33f338fd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for testing the winner function.  <a href="#afb0dacc849db18e935c23bf33f338fd2">More...</a><br /></td></tr>
 <tr class="separator:afb0dacc849db18e935c23bf33f338fd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09a73a549f9087f4d785d8be7dfdda45"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a09a73a549f9087f4d785d8be7dfdda45">test_on_field</a> (const int pos_x, const int pos_y, const bool valid, const int test_number)</td></tr>
+<tr class="memdesc:a09a73a549f9087f4d785d8be7dfdda45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for testing the on_field function.  <a href="#a09a73a549f9087f4d785d8be7dfdda45">More...</a><br /></td></tr>
 <tr class="separator:a09a73a549f9087f4d785d8be7dfdda45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade70a78bd4c62d0deed498aa89bb7f4c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#ade70a78bd4c62d0deed498aa89bb7f4c">test_turn_valid</a> (const int field[<a class="el" href="config_8h.html#a6860cfdeb3aec30a717773c935b62688">SIZE_Y</a>][<a class="el" href="config_8h.html#a7297804bc7db40c954fd7fb75f7f874e">SIZE_X</a>], const int player, const int pos_x, const int pos_y, const bool valid, const int test_number)</td></tr>
 <tr class="separator:ade70a78bd4c62d0deed498aa89bb7f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -195,7 +197,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks for two index parameters, if they adress a position on the field. </p>
-<p>This function takes the given parameters and compares them to the constant borders of the playtable. The playable field is between the indices 0 to SIZE_X and 0 to SIZE_Y.</p>
+<p>This function takes the given parameters and compares them to the constant borders of the playtable. The playable field is between the indices 0 to SIZE_X and 0 to SIZE_Y. Are the coordinates of the given point out of the playground, the function will return false.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pos_x</td><td>Position on the x-axis. </td></tr>
@@ -373,6 +375,18 @@ The function prints the playing field, grid included, to the console. Crosses sy
       </table>
 </div><div class="memdoc">
 
+<p>Function for testing the on_field function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos_x</td><td>Position on x-axis of the given point. </td></tr>
+    <tr><td class="paramname">pos_y</td><td>Position on y-axis of the given point. </td></tr>
+    <tr><td class="paramname">valid</td><td>The estimated result of the given point. </td></tr>
+    <tr><td class="paramname">test_number</td><td>Current number of the test running. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the calculated bool is equal to the estimated one. </dd></dl>
+
 </div>
 </div>
 <a id="a7010fd076a3672f74d9d88257edd22f6"></a>
@@ -498,7 +512,8 @@ The function prints the playing field, grid included, to the console. Crosses sy
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Function for testing the winner function.</p>
+
+<p>Function for testing the winner function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">field</td><td>The field which will be tested. </td></tr>
