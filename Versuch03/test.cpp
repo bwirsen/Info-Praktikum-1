@@ -80,13 +80,46 @@ bool test_on_field(const int pos_x, const int pos_y, const bool valid,
 		return false;
 	}
 }
-
-bool test_turn_valid(const int field[SIZE_Y][SIZE_X], const int player, const int pos_x,
-					 const int pos_y, const bool valid, const int test_number)
+/**
+ *@brief Function for testing the turn_valid function.
+ *
+ * @param field The field which will be tested.
+ * @param player Actual player doing the turn.
+ * @param pos_x	Position on x-axis of the chosen turn.
+ * @param pos_y Position on y-axis of the chosen turn.
+ * @param valid The estimated result of the chosen turn.
+ * @param test_number Current number of the test running.
+ * @return True if the calculated bool is equal to the estimated one.
+ */
+bool test_turn_valid(const int field[SIZE_Y][SIZE_X], const int player,
+		const int pos_x, const int pos_y, const bool valid,
+		const int test_number)
 {
 	// check for a given field whether a turn is valid
 	// if VERBOSE is 1 additionaly show the field and the invalid position
-	return 0;
+	std::cout << "Running test " << test_number + 1 << " for 'turn_valid'..."
+			<< std::endl;
+	std::cout << "----------------------------" << std::endl << std::endl;
+	int result = turn_valid(field, player, pos_x, pos_y);
+	if (result == valid)
+	{
+		std::cout << "Test " << test_number + 1 << " passed!" << std::endl
+				<< std::endl;
+		return true;
+	}
+	else
+	{
+		std::cout << "Test " << test_number + 1 << " failed!" << std::endl
+				<< std::endl;
+		if (VERBOSE == 1)
+		{
+
+			show_field(field);
+			std::cout << "invalid Position: (" << pos_x << ", " << pos_y << ")"
+					<< std::endl;
+		}
+		return false;
+	}
 }
 
 bool test_execute_turn(int input[SIZE_Y][SIZE_X], const int output[SIZE_Y][SIZE_X],
@@ -166,7 +199,7 @@ bool run_full_test(void)
 	for (int i = 0; i < 6; ++i)
 	{
 
-		bool tmp_result = test_on_field(position[0][i], position[1][i], onfield_valid[i], i);
+		bool tmp_result = test_on_field(position[i][0], position[i][1], onfield_valid[i], i);
 		if (result == true && tmp_result == false)
 				{
 					result = false;
@@ -258,8 +291,16 @@ bool run_full_test(void)
 
 	for (int i = 0; i < 7; ++i)
 	{
-		// TODO: Call the check function
+
+		bool tmp_result = test_turn_valid(turnvalid_matrix[i], turnvalid_player[i], turnvalid_pos[i][0],
+				turnvalid_pos[i][1],turnvalid_valid[i], i);
+				if (result == true && tmp_result == false)
+						{
+							result = false;
+						}
 	}
+
+	std::cout << "End of test for 'valid_turn'" << std::endl << std::endl;
 
 
 // ---------- CHECK EXECUTE TURN ---------- //

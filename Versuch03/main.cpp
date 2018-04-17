@@ -169,8 +169,25 @@ bool on_field(const int pos_x, const int pos_y)
 }
 
 
-
-bool turn_valid(const int field[SIZE_Y][SIZE_X], const int player, const int pos_x, const int pos_y)
+/**
+ * @brief This function checks if it is allowed to play the selected turn.
+ *
+ * This function comes to a result by <br>
+ * 1)	looking at every field around the selected one <br>
+ * 2)	if there is an opponets stone the function goes into a while-loop to follow the linear
+ * direction between the stone and the selected point looking for another oppontent stones<br>
+ * 3)	if the chosen direction leads to a players stone the function returns true - so the turn is valid <br>
+ * 4)	if there are neither opponents stones or a players stone behind a linear chain of opponent stones
+ * the function will return false - so the turn is not valid <br>
+ *
+ * @param field		The field which has to be checked
+ * @param player	The ID-number of the actual player
+ * @param pos_x		The position from the given point on the x-axis
+ * @param pos_y		The position from the given point on the y-axis
+ * @return			true if the turn is valid, false if not
+ */
+bool turn_valid(const int field[SIZE_Y][SIZE_X], const int player,
+		const int pos_x, const int pos_y)
 {
 	// Process all possible directions
 	int opponent = 3 - player; // the same as: if player = 1 -> opponent = 2 else
@@ -189,6 +206,23 @@ bool turn_valid(const int field[SIZE_Y][SIZE_X], const int player, const int pos
 			//then check if in this direction all stones are opponent stones until
 			//the line is terminated by one of your own stone
 			//in that case return true otherwise not
+			if (on_field(pos_y + i, pos_x + j)
+					&& field[pos_y + i][pos_x + j] == opponent)
+			{
+				int yCoord = 2 * i;
+				int xCoord = 2 * j;
+				while (on_field(pos_y + yCoord, pos_x + xCoord)
+						&& field[pos_y + yCoord][pos_x + xCoord] != 0)
+				{
+					if (field[pos_y + yCoord][pos_x + xCoord] == player)
+					{
+
+						return true;
+					}
+					yCoord = yCoord + i;
+					xCoord = xCoord + j;
+				}
+			}
 		}
 	}
 	return false;

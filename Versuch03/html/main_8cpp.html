@@ -112,6 +112,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a7b9e2a0b89f56854fa9e43ed9a691514"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for two index parameters, if they adress a position on the field.  <a href="#a7b9e2a0b89f56854fa9e43ed9a691514">More...</a><br /></td></tr>
 <tr class="separator:a7b9e2a0b89f56854fa9e43ed9a691514"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbf34a9e8028eb4911abf42d6dee0dea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#afbf34a9e8028eb4911abf42d6dee0dea">turn_valid</a> (const int field[<a class="el" href="config_8h.html#a6860cfdeb3aec30a717773c935b62688">SIZE_Y</a>][<a class="el" href="config_8h.html#a7297804bc7db40c954fd7fb75f7f874e">SIZE_X</a>], const int player, const int pos_x, const int pos_y)</td></tr>
+<tr class="memdesc:afbf34a9e8028eb4911abf42d6dee0dea"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function checks if it is allowed to play the selected turn.  <a href="#afbf34a9e8028eb4911abf42d6dee0dea">More...</a><br /></td></tr>
 <tr class="separator:afbf34a9e8028eb4911abf42d6dee0dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2495c6f2402435b226c6f06785e7d091"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a2495c6f2402435b226c6f06785e7d091">execute_turn</a> (int field[<a class="el" href="config_8h.html#a6860cfdeb3aec30a717773c935b62688">SIZE_Y</a>][<a class="el" href="config_8h.html#a7297804bc7db40c954fd7fb75f7f874e">SIZE_X</a>], const int player, const int pos_x, const int pos_y)</td></tr>
 <tr class="separator:a2495c6f2402435b226c6f06785e7d091"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -392,6 +393,24 @@ The function prints the playing field, grid included, to the console. Crosses sy
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>This function checks if it is allowed to play the selected turn. </p>
+<p>This function comes to a result by <br />
+ 1) looking at every field around the selected one <br />
+ 2) if there is an opponets stone the function goes into a while-loop to follow the linear direction between the stone and the selected point looking for another oppontent stones<br />
+ 3) if the chosen direction leads to a players stone the function returns true - so the turn is valid <br />
+ 4) if there are neither opponents stones or a players stone behind a linear chain of opponent stones the function will return false - so the turn is not valid <br />
+</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">field</td><td>The field which has to be checked </td></tr>
+    <tr><td class="paramname">player</td><td>The ID-number of the actual player </td></tr>
+    <tr><td class="paramname">pos_x</td><td>The position from the given point on the x-axis </td></tr>
+    <tr><td class="paramname">pos_y</td><td>The position from the given point on the y-axis </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the turn is valid, false if not </dd></dl>
 
 </div>
 </div>
