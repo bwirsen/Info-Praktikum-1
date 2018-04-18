@@ -84,12 +84,12 @@ bool test_on_field(const int pos_x, const int pos_y, const bool valid,
  *@brief Function for testing the turn_valid function.
  *
  * @param field The field which will be tested.
- * @param player Actual player doing the turn.
+ * @param player Actual player doing his/her turn.
  * @param pos_x	Position on x-axis of the chosen turn.
  * @param pos_y Position on y-axis of the chosen turn.
  * @param valid The estimated result of the chosen turn.
  * @param test_number Current number of the test running.
- * @return True if the calculated bool is equal to the estimated one.
+ * @return True if the function works.
  */
 bool test_turn_valid(const int field[SIZE_Y][SIZE_X], const int player,
 		const int pos_x, const int pos_y, const bool valid,
@@ -121,23 +121,101 @@ bool test_turn_valid(const int field[SIZE_Y][SIZE_X], const int player,
 		return false;
 	}
 }
-
+/**
+ * @brief Function for testing the execute_turn function.
+ *
+ * @param input The field which will be tested.
+ * @param output The estimated field.
+ * @param player Actual player doing his/her turn.
+ * @param pos_x	Position on x-axis of the chosen turn.
+ * @param pos_y Position on y-axis of the chosen turn.
+ * @param test_number Current number of the test running.
+ * @return True if the function works.
+ */
 bool test_execute_turn(int input[SIZE_Y][SIZE_X], const int output[SIZE_Y][SIZE_X],
 					   const int player, const int pos_x, const int pos_y, const int test_number)
 {
 	// check for a given field whether the execution of a turn is valid
 	// if VERBOSE is 1 additionaly show both fields	
-	return 0;
-}
+	std::cout << "Running test " << test_number + 1 << " for 'execute_turn'..."
+			<< std::endl;
+	std::cout << "----------------------------" << std::endl << std::endl;
+	execute_turn(input, player, pos_x, pos_y);
+	//check if the two fields are equal.  (input==output sadly does not work :/ )
+	bool result = true;
+	for (int i = 0; i < 8; ++i)
+	{
+		for (int j = 0; j < 8; ++j)
+		{
+			if (input[i][j] != output[i][j])
+			{
+				result = false;
+			}
+		}
+	}
 
+	if (result)
+	{
+		std::cout << "Test " << test_number + 1 << " passed!" << std::endl
+				<< std::endl;
+		return true;
+	}
+	else
+	{
+		std::cout << "Test " << test_number + 1 << " failed!" << std::endl
+				<< std::endl;
+		if (VERBOSE == 1)
+		{
+
+			show_field(input);
+			std::cout << std::endl;
+			show_field(output);
+
+		}
+		return false;
+	}
+}
+/**
+ * @brief Function for testing the possible_turns function.
+ * @param field The field which will be tested.
+ * @param player Actual player doing his/her turn.
+ * @param count_possible_turns The estimated result of the number of possible turns.
+ * @param test_number Current number of the test running.
+ * @return true if the fucntion works
+ */
 bool test_possible_turns(const int field[SIZE_Y][SIZE_X], const int player,
-						 const int count_possible_turns, const int test_number)
+		const int count_possible_turns, const int test_number)
 {
-	// very if your function finds all possible turns
+	// verify if your function finds all possible turns
 	// if VERBOSE is 1 additionaly show the field and the correct turns and the invalid turns
-	return 0;
+	std::cout << "Running test " << test_number + 1
+			<< " for 'possible_turns'..." << std::endl;
+	std::cout << "----------------------------" << std::endl << std::endl;
+	int result = possible_turns(field, player);
+	if (result == count_possible_turns)
+	{
+		std::cout << "Test " << test_number + 1 << " passed!" << std::endl
+				<< std::endl;
+		return true;
+	}
+	else
+	{
+		std::cout << "Test " << test_number + 1 << " failed!" << std::endl
+				<< std::endl;
+		if (VERBOSE == 1)
+		{
+			show_field(field);
+			std::cout << std::endl << "Calculated wrong result: " << result
+					<< std::endl << "Correct turns: " << count_possible_turns << std::endl
+					<< std::endl;
+		}
+		return false;
+	}
 }
-
+/**
+ *
+ * @return
+ */
 bool run_full_test(void)
 {
 	bool result = true;
@@ -300,7 +378,8 @@ bool run_full_test(void)
 						}
 	}
 
-	std::cout << "End of test for 'valid_turn'" << std::endl << std::endl;
+	std::cout << "End of test for 'valid_turn'" << std::endl << "------------------------------------------------"<<std::endl<<std::endl<<std::endl<<std::endl;
+
 
 
 // ---------- CHECK EXECUTE TURN ---------- //
@@ -525,8 +604,18 @@ bool run_full_test(void)
 
 	for (int i = 0; i < 10; ++i)
 	{
-		// TODO: Call the check function
+
+		bool tmp_result = test_execute_turn(executeturn_matrix_in[i],
+				executeturn_matrix_out[i], executeturn_player[i],
+				executeturn_pos[i][0], executeturn_pos[i][1], i);
+		if (result == true && tmp_result == false)
+		{
+			result = false;
+		}
 	}
+
+	std::cout << "End of test for 'execute_turn'" << std::endl << std::endl;
+
 
 
 // ---------- CHECK POSSIBLE TURNS ---------- //
@@ -558,8 +647,17 @@ bool run_full_test(void)
 
 	for (int i = 0; i < 2; ++i)
 	{
-		// TODO: Call the check function
-	}
 
-	return result;
+		bool tmp_result = test_possible_turns(possibleturns_matrix[i],
+				possibleturns_player[i], possibleturns_count[i], i);
+
+		if (result == true && tmp_result == false)
+		{
+			result = false;
+		}
+	}
+	std::cout << "End of test for 'possible_turns'" << std::endl << std::endl;
+
+
+return result;
 }

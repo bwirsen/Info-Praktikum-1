@@ -227,25 +227,88 @@ bool turn_valid(const int field[SIZE_Y][SIZE_X], const int player,
 	}
 	return false;
 }
-
-void execute_turn(int field[SIZE_Y][SIZE_X], const int player, const int pos_x, const int pos_y)
+/**
+ * @brief This function checks if it is allowed to play the selected turn AND execute the turn.
+ *
+ * The function is quite similar to turn_valid.
+ * The only addtition to it is a for-loop within the if-command to turn the stones looked at.
+ *
+ * @param field		The field which has to be checked
+ * @param player	The ID-number of the actual player
+ * @param pos_x		The position from the given point on the x-axis
+ * @param pos_y		The position from the given point on the y-axis
+ */
+void execute_turn(int field[SIZE_Y][SIZE_X], const int player, const int pos_x,
+		const int pos_y)
 {
 	int opponent = 3 - player;
-	
+
+	if (field[pos_y][pos_x] != 0) //check if field is currently empty
+	{
+		return;
+	}
+
 	for (int j = -1; j <= 1; ++j)
 	{
 		for (int i = -1; i <= 1; ++i)
 		{
 			// similar to function "turn_valid" - just take care that all opponent
 			// stones are changed to yours
+			if (on_field(pos_y + i, pos_x + j)
+					&& field[pos_y + i][pos_x + j] == opponent)
+			{
+				int yCoord = i;
+				int xCoord = j;
+				int stepsDone = 0;
+				while (on_field(pos_y + yCoord, pos_x + xCoord)
+						&& field[pos_y + yCoord][pos_x + xCoord] != 0)
+				{
+					//counting the number of checked fields to know how many stones have to be turned
+					++stepsDone;
+					//if a path reaches the final condition it'll trigger the turning of the stones
+					//if not the function moves to another direction and resets stepsDone
+					if (field[pos_y + yCoord][pos_x + xCoord] == player)
+					{
+						//taking stepsDone and the given directions (i,j) to turn one stone per iteration
+						for (int k = 0; k < stepsDone; ++k)
+						{
+							field[pos_y + i * k][pos_x + j * k] = player;
+						}
+						//if the stones are turned, the while-loop breaks and another direction will be chosen
+						break;
+					}
+					yCoord = yCoord + i;
+					xCoord = xCoord + j;
+				}
+			}
 		}
 	}
-
 }
-
+/**
+ * @brief This function cheks the number of possible turns the player could do.
+ *
+ * The function uses 2 for-loop to look at every field of given playground in combination with
+ * the given function turn_valid to check if the actual field is a valid one. If it is, the
+ * variable possibleTurns will be increased by one.
+ *
+ * @param field	The field which has to be checked
+ * @param player The ID-number of the actual player
+ * @return The number of possible Turns.
+ */
 int possible_turns(const int field[SIZE_Y][SIZE_X], const int player)
 {
-	return 0;
+	int possibleTurns=0;
+	for (int pos_y = 0; pos_y < SIZE_Y; ++pos_y)
+	{
+		for (int pos_x = 0; pos_x < SIZE_X; ++pos_x)
+		{
+			if(turn_valid(field, player, pos_x, pos_y))
+			{
+				++possibleTurns;
+			}
+		}
+	}
+	return possibleTurns;
 }
 
 bool human_turn(int field[SIZE_Y][SIZE_X], const int player)
@@ -294,8 +357,44 @@ void game(const int player_typ[2])
 	show_field(field);
 	//let each player make its moves until no further moves are possible
 
+	//GAMELOOP
+	while (true)
+	{
+
+		//check if player 1 can do a turn and execute
+		current_player = 1;
+		if (possible_turns(field, current_player))
+		{
+			std::cout << "Player 1: YOUR TURN" << std::endl;
+			human_turn(field, current_player);
+			show_field(field);
+		}
+
+		//check if player 2 can do a turn and execute
+		current_player = 2;
+		if (possible_turns(field, current_player))
+		{
+			std::cout << "Player 2: YOUR TURN" << std::endl;
+			human_turn(field, current_player);
+			show_field(field);
+		}
+
+		//check if any turns are left and break in case
+		if (possible_turns(field, current_player) == 0
+				&& possible_turns(field, 3 - current_player) == 0)
+		{
+			std::cout << "NO TURNS LEFT" << std::endl;
+			break;
+		}
+
+	}
+
+
 	switch (winner(field))
 	{
+	case 1: std::cout << "Player 1 has won!" << std::endl; break;
+
+	case 2: std::cout << "Player 2 has won!" << std::endl; break;
 
 	}
 }
@@ -322,7 +421,7 @@ int main(void)
 
 	show_field(field);
 
-	// int player_type[2] = { HUMAN, HUMAN };  //Contains information wether players are HUMAN(=1) or COPMUTER(=2)
-	// game(player_type);
+	int player_type[2] = { HUMAN, HUMAN };  //Contains information wether players are HUMAN(=1) or COPMUTER(=2)
+	game(player_type);
 	return 0;
 }

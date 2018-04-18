@@ -115,8 +115,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:afbf34a9e8028eb4911abf42d6dee0dea"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function checks if it is allowed to play the selected turn.  <a href="#afbf34a9e8028eb4911abf42d6dee0dea">More...</a><br /></td></tr>
 <tr class="separator:afbf34a9e8028eb4911abf42d6dee0dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2495c6f2402435b226c6f06785e7d091"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a2495c6f2402435b226c6f06785e7d091">execute_turn</a> (int field[<a class="el" href="config_8h.html#a6860cfdeb3aec30a717773c935b62688">SIZE_Y</a>][<a class="el" href="config_8h.html#a7297804bc7db40c954fd7fb75f7f874e">SIZE_X</a>], const int player, const int pos_x, const int pos_y)</td></tr>
+<tr class="memdesc:a2495c6f2402435b226c6f06785e7d091"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function checks if it is allowed to play the selected turn AND execute the turn.  <a href="#a2495c6f2402435b226c6f06785e7d091">More...</a><br /></td></tr>
 <tr class="separator:a2495c6f2402435b226c6f06785e7d091"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc856bca74fb081e1a6703227217f64d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#abc856bca74fb081e1a6703227217f64d">possible_turns</a> (const int field[<a class="el" href="config_8h.html#a6860cfdeb3aec30a717773c935b62688">SIZE_Y</a>][<a class="el" href="config_8h.html#a7297804bc7db40c954fd7fb75f7f874e">SIZE_X</a>], const int player)</td></tr>
+<tr class="memdesc:abc856bca74fb081e1a6703227217f64d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function cheks the number of possible turns the player could do.  <a href="#abc856bca74fb081e1a6703227217f64d">More...</a><br /></td></tr>
 <tr class="separator:abc856bca74fb081e1a6703227217f64d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeffc62e7a3a7a5ff8ce5d25398cc9ec9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aeffc62e7a3a7a5ff8ce5d25398cc9ec9">human_turn</a> (int field[<a class="el" href="config_8h.html#a6860cfdeb3aec30a717773c935b62688">SIZE_Y</a>][<a class="el" href="config_8h.html#a7297804bc7db40c954fd7fb75f7f874e">SIZE_X</a>], const int player)</td></tr>
 <tr class="separator:aeffc62e7a3a7a5ff8ce5d25398cc9ec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,6 +167,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>This function checks if it is allowed to play the selected turn AND execute the turn. </p>
+<p>The function is quite similar to turn_valid. The only addtition to it is a for-loop within the if-command to turn the stones looked at.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">field</td><td>The field which has to be checked </td></tr>
+    <tr><td class="paramname">player</td><td>The ID-number of the actual player </td></tr>
+    <tr><td class="paramname">pos_x</td><td>The position from the given point on the x-axis </td></tr>
+    <tr><td class="paramname">pos_y</td><td>The position from the given point on the y-axis </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -325,6 +339,17 @@ false If the given point does not lay on playable ground. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>This function cheks the number of possible turns the player could do. </p>
+<p>The function uses 2 for-loop to look at every field of given playground in combination with the given function turn_valid to check if the actual field is a valid one. If it is, the variable possibleTurns will be increased by one.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">field</td><td>The field which has to be checked </td></tr>
+    <tr><td class="paramname">player</td><td>The ID-number of the actual player </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of possible Turns. </dd></dl>
 
 </div>
 </div>
