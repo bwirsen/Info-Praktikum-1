@@ -1,7 +1,7 @@
 var main_8cpp =
 [
     [ "execute_turn", "main_8cpp.html#a2495c6f2402435b226c6f06785e7d091", null ],
-    [ "game", "main_8cpp.html#a9e0b7a14e36b03a60a6990a6b7cff829", null ],
+    [ "game", "main_8cpp.html#a395ac16d5c16dba0c1fde68c2ee9fdcd", null ],
     [ "human_turn", "main_8cpp.html#aeffc62e7a3a7a5ff8ce5d25398cc9ec9", null ],
     [ "initialize_field", "main_8cpp.html#a89dd8754fb2cb1c6d007cd6c4b8de248", null ],
     [ "main", "main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe", null ],

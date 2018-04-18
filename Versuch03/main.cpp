@@ -344,8 +344,15 @@ bool human_turn(int field[SIZE_Y][SIZE_X], const int player)
 
 	return true;
 }
-
-void game(const int player_typ[2])
+/**
+ * @brief Heart of the game.
+ *
+ * Prints and updates the field, checks if turns are possible/valid and controls the turns
+ * by choosing if a HUMAN or the COMPUTER is playing and calling the human_(comupter)_turn function.
+ *
+ * @param player_typ Array with player types (HUMAN or COMPUTER), to control who is playing the game. Can be changed in main().
+ */
+void game(const int player_typ[])
 {
 
 	int field[SIZE_Y][SIZE_X];
@@ -366,7 +373,14 @@ void game(const int player_typ[2])
 		if (possible_turns(field, current_player))
 		{
 			std::cout << "Player 1: YOUR TURN" << std::endl;
-			human_turn(field, current_player);
+			if (player_typ[0] == HUMAN)					//check the type of player for player 1
+			{
+				human_turn(field, current_player);
+			}
+			else
+			{
+				computer_turn(field, current_player);
+			}
 			show_field(field);
 		}
 
@@ -375,7 +389,14 @@ void game(const int player_typ[2])
 		if (possible_turns(field, current_player))
 		{
 			std::cout << "Player 2: YOUR TURN" << std::endl;
-			human_turn(field, current_player);
+			if (player_typ[1] == HUMAN)					//check the type of player for player 1
+			{
+				human_turn(field, current_player);
+			}
+			else
+			{
+				computer_turn(field, current_player);
+			}
 			show_field(field);
 		}
 
@@ -389,12 +410,15 @@ void game(const int player_typ[2])
 
 	}
 
-
 	switch (winner(field))
 	{
-	case 1: std::cout << "Player 1 has won!" << std::endl; break;
+	case 1:
+		std::cout << "Player 1 has won!" << std::endl;
+		break;
 
-	case 2: std::cout << "Player 2 has won!" << std::endl; break;
+	case 2:
+		std::cout << "Player 2 has won!" << std::endl;
+		break;
 
 	}
 }
@@ -410,7 +434,8 @@ int main(void)
 		}
 		else
 		{
-			std::cout << "TEST FAILED!" << std::endl;
+			std::cout << "TEST FAILED! GAME IS NOT READY TO PLAY. PLS FIX!" << std::endl;
+			return 0;
 		}
 		std::cout << std::endl << std::endl;
 	}
@@ -421,7 +446,7 @@ int main(void)
 
 	show_field(field);
 
-	int player_type[2] = { HUMAN, HUMAN };  //Contains information wether players are HUMAN(=1) or COPMUTER(=2)
+	int player_type[2] = { COMPUTER, COMPUTER };  //Contains information wether players are HUMAN(=1) or COPMUTER(=2)
 	game(player_type);
 	return 0;
 }
