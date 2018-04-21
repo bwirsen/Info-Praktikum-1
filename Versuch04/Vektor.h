@@ -8,7 +8,7 @@
 
 #ifndef Vektor_H
 #define Vektor_H
-#define PI 3.14159265
+#define PI 3.14159265359
 #include <iostream>
 #include <cmath>
 #include <iomanip>

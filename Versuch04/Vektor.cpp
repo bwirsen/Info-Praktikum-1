@@ -5,8 +5,9 @@
 // Datei:  Vektor.cpp
 // Inhalt: Sourcedatei der Klasse Vektor
 //////////////////////////////////////////////////////////////////////////////
-#define PI 3.14159265
+#define PI 3.14159265359
 #include "Vektor.h"
+
 
 Vektor::Vektor(double inX, double inY, double inZ) :
 		x(inX), y(inY), z(inZ)
