@@ -179,7 +179,7 @@ bool List::deleteByMatNr(const unsigned int MatNr)
 
 			if (head == tail)                                // only one element
 			{
-				delete head;
+				delete head;								//head, tail or cursor possible
 				head = NULL;
 				tail = NULL;
 
@@ -188,15 +188,15 @@ bool List::deleteByMatNr(const unsigned int MatNr)
 
 			else if (cursor == tail)
 			{
-				ListElem* cache = tail->getPrev();
-				cache->setNext(NULL);
-				tail = cache;
-				delete cursor;
+				ListElem* cache = tail->getPrev();			//cache-pointer on element before tail
+				cache->setNext(NULL);						//setting next in cache to NULL
+				tail = cache;								//setting tail to the previous elemtent (cache)
+				delete cursor;								//deleting the last element
 
 				return true;
 
 			}
-			else if (cursor == head)
+			else if (cursor == head)						//analogical to cursor==tail
 			{
 				ListElem* cache = head->getNext();
 				cache->setPrev(NULL);
@@ -208,11 +208,11 @@ bool List::deleteByMatNr(const unsigned int MatNr)
 
 			else
 			{
-				ListElem* cache1 = cursor->getNext();
+				ListElem* cache1 = cursor->getNext();		//2 new cache-pointer. 1 for next and 1 for prev
 				ListElem* cache2 = cursor->getPrev();
-				cache1->setPrev(cache2);
+				cache1->setPrev(cache2);					//connect both elements
 				cache2->setNext(cache1);
-				delete cursor;
+				delete cursor;								//delete the start element
 
 				return true;
 			}
