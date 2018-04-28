@@ -16,6 +16,12 @@
 class Vektor
 {
    public:
+	/**
+	 * @brief constructor of the class Vektor
+	 * @param x Parameter to fill the private x-component
+	 * @param y	look at x
+	 * @param z loot at y
+	 */
     Vektor(double x, double y, double z);
     ~Vektor();
 

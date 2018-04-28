@@ -8,6 +8,7 @@ Debug
 Release
 html
 latex
+battleships
 
 # child directory files
 .cproject

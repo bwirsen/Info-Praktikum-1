@@ -72,7 +72,7 @@ double Vektor::angle(const Vektor& input) const
 }
 
 /**
- * @brief Function calculating the rotation around the z-axis
+ * @brief Function calculating the rotation around the z-axis of a vector
  * @param rad Radiant
  */
 void Vektor::rotateAroundZ(const double rad)
