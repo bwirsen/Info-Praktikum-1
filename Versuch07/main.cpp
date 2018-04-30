@@ -1,7 +1,7 @@
 /** @mainpage
  *
  * Praktikum Informatik 1 MMXVIII
- * Versuch 6: Standard Template Library
+ * Versuch 7: Überladung
  *
  * 
  */
@@ -16,7 +16,24 @@
 #include <string>
 #include "Student.h"
 #include <vector>
+#include <algorithm>
 
+/**
+ * @brief global function for operator <<()
+ * @param out reference of std::cout
+ * @param student element to be printed
+ * @return call of the class-function print()
+ */
+std::ostream& operator<<(std::ostream& out, Student& student)
+{
+	return student.print(out);
+}
+
+/**
+ *@brief int main()
+ * main routine
+ * @return 0 to close .exe
+ */
 int main()
 {
 	std::vector<Student> database;
@@ -49,10 +66,10 @@ int main()
 				<< std::endl << "(2): Datenelement abhängen (pop)" << std::endl
 				<< "(3): Datenbank ausgeben" << std::endl
 				<< "(4): Datenbank in umgekehrter Reihenfolge ausgeben"
-				<< std::endl << "(5): Datenelement löschen -- disabled"
-				<< std::endl
+				<< std::endl << "(5): Datenelement löschen" << std::endl
 				<< "(6): Datenelement hinten ergänzen -- identisch zu (1)"
-				<< std::endl << "(7): Beenden" << std::endl;
+				<< std::endl << "(7): Datenbank sortieren und ausgeben"
+				<< std::endl << "(0): Beenden" << std::endl;
 		std::cin >> abfrage;
 
 		switch (abfrage)
@@ -95,7 +112,7 @@ int main()
 				std::cout << "Das letzte Datenelement wird entfernt: \n";
 				//For documentaion visit http://www.cplusplus.com/reference/vector/vector/back/
 				//and http://www.cplusplus.com/reference/vector/vector/pop_back/
-				database.back().print();
+				//database.back().print();
 				database.pop_back();
 			}
 		}
@@ -105,22 +122,46 @@ int main()
 			std::cout << "Inhalt der Liste:\n";
 			//Create iterator (pointer-like operator) to iterate through the container Vector from begin to end
 			//again http://www.cplusplus.com/reference/vector/vector/
-			for (std::vector<Student>::const_iterator it = database.begin();
+			for (std::vector<Student>::iterator it = database.begin();
 					it != database.end(); ++it)
 			{
 				//dereference the iterator and print
-				it->print();
+				std::cout << *it << std::endl;
 			}
 
 			break;
 
 		case '4':
 			std::cout << "Inhalt der Liste rückwerts:\n";
-			for (std::vector<Student>::const_iterator it = (database.end() - 1);
+			for (std::vector<Student>::iterator it = (database.end() - 1);
 					it != (database.begin() - 1); --it)
 			{
-				it->print();
+				std::cout << *it << std::endl;
 			}
+			break;
+
+		case '5':
+		{
+			unsigned int matNr = 0;
+			std::cout << "Matrikelnummer der zu löschenden Person eingeben: ";
+			std::cin >> matNr;
+			//possible, because default-parameters were added to the constructor in Student.h
+			Student search(matNr);
+
+			//function out of <algorithm> : documentation http://www.cplusplus.com/reference/algorithm/find/
+			//related to task: find() uses now the overloaded ==() to find the student
+			std::vector<Student>::iterator it = std::find(database.begin(),
+					database.end(), search);
+			if (it != database.end())
+			{
+				std::cout << "Element found in database: " << *it << '\n';
+				database.erase(it); //http://www.cplusplus.com/reference/vector/vector/erase/
+				std::cout << "Element erased" << std::endl;
+			}
+			else
+				std::cout << "Element not found in database\n";
+
+		}
 			break;
 
 		case '6':
@@ -148,6 +189,19 @@ int main()
 			break;
 
 		case '7':
+		{
+			//using deafault comparison (overloaded operator <)
+			std::sort(database.begin(), database.end());
+
+			for (std::vector<Student>::iterator it = database.begin();
+					it != database.end(); ++it)
+			{
+				std::cout << *it << std::endl;
+			}
+		}
+			break;
+
+		case '0':
 			std::cout << "Das Programm wird nun beendet";
 			break;
 
@@ -155,7 +209,7 @@ int main()
 			std::cout << "Falsche Eingabe, bitte nochmal";
 			break;
 		}
-	} while (abfrage != '7');
+	} while (abfrage != '0');
 
 	return 0;
 }
