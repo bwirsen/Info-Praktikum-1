@@ -25,8 +25,9 @@ void Magazin::ausgabe() const
 bool Magazin::ausleihen(Person person, Datum ausleihdatum)
 {
 
-	if (abs(this->initDatumAusgabe - ausleihdatum) != 0)
+	if (abs(this->initDatumAusgabe - ausleihdatum) != (0 || 1))
 	{
+		//std::cout << abs(this->initDatumAusgabe - ausleihdatum);
 		Medium::ausleihen(person, ausleihdatum);
 		return true;
 	}
